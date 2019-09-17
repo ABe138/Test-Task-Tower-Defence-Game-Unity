@@ -32,8 +32,8 @@ public class SplashProcessor : MonoBehaviour {
             for (int i = 0; i < requestsCount; i++)
             {
                 SplashRequest splashRequest = pendingSplashRequests[i];
-                Physics2D.OverlapAreaNonAlloc(splashRequest.center - splashRequest.size, splashRequest.center + splashRequest.size, splashables, enemyLayer);
-                for(int j = 0; j < splashables.Length; j++)
+                int captured = Physics2D.OverlapAreaNonAlloc(splashRequest.center - splashRequest.size, splashRequest.center + splashRequest.size, splashables, enemyLayer);
+                for(int j = 0; j < captured; j++)
                 {
                     if(splashables[j] != null)
                     {
